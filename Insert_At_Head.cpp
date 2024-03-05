@@ -1,64 +1,88 @@
+// #include<iostream>
+// using namespace std;
+
+// class Node{
+//     public:
+//     int data;
+//     Node* previous;
+//     Node* next;
+
+//     //constructor
+//     Node(int data){
+//         this-> data =data;
+//         this-> next = NULL;
+//         this-> previous = NULL;
+//     }
+// };
+
+// void insertAtHead(Node* &head,int d){
+//     Node* temp = new Node(d);
+//     temp -> next = head;
+//     head -> previous = temp;
+//     head = temp;
+// }
+
+// void print(Node* &head){
+//     Node* temp= head;
+//     while(temp != NULL){
+//         cout << temp -> data << " ";
+//         temp = temp-> next;
+//     }
+//     cout << endl;
+// }
+
+// int main(){
+//     Node* node1 = new Node(10);
+
+//     Node* head = node1;
+//     print(head);
+
+//     insertAtHead(head,34);
+//     print(head);
+
+
+// }
+
 #include<iostream>
 using namespace std;
 
 class Node{
     public:
     int data;
+    Node* previous;
     Node* next;
 
-    //Constructor
     Node(int data){
         this -> data = data;
+        this -> previous = NULL;
         this -> next = NULL;
     }
 };
 
 void insertAtHead(Node* &head,int d){
-    //new Node Created
     Node* temp = new Node(d);
-    temp -> next = head;
+    temp -> next =head;
+    head -> previous = temp;
     head = temp;
 }
 
-// void insertAtTail(Node* &tail,int d){
-//     Node* temp = new Node(d);
-//     tail-> next = temp;
-//     tail = tail -> next; 
-// }
-
-
-
 void print(Node* &head){
-    Node* temp =  head;
-
+    Node* temp = head;
     while(temp != NULL){
         cout << temp -> data << " ";
-        temp = temp-> next; 
+        temp = temp-> next;
     }
     cout << endl;
 }
 
-
-
 int main(){
     Node* node1 = new Node(10);
-
-    //cout << node1 -> data << endl;
-    //cout << node1 -> next << endl;
-
-    //head pointed to node1
-    Node* head = node1;
+    Node* head =node1;
     print(head);
+
     insertAtHead(head,12);
     print(head);
 
-    insertAtHead(head,15);
+    insertAtHead(head,14);
     print(head);
-
-
-
 }
-
-
-
-
